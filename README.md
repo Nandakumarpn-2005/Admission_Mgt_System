@@ -108,7 +108,7 @@ The photo appears nicely aligned beside the student details.
 ---
 
 7️⃣ Admission Success Form
-<p align="center"> <img src="img/sucess.jpg" alt="Admission Success Form" width="100" height="100"> </p> <p align="center"> <em>Alternative if missing → https://via.placeholder.com/900x500?text=Admission+Success+Form+Screenshot</em> </p>
+<p align="center"> <img src="img/sucess.jpg" alt="Admission Success Form" width="300" height="300"> </p> <p align="center"> <em>Alternative if missing → https://via.placeholder.com/900x500?text=Admission+Success+Form+Screenshot</em> </p>
 
 The Admission Success Form confirms that the student registration has been successfully completed.
 It highlights the student details clearly in a modern green-themed card layout.
@@ -128,27 +128,3 @@ It highlights the student details clearly in a modern green-themed card layout.
 -Uploaded Student Photograph
 ---
 
-# 📁 Folder Structure
-
-```text
-project_root/
-│
-├── app.py                  # Main Flask application
-├── requirements.txt        # Python dependencies
-├── README.md               # Project documentation (this file)
-│
-├── static/
-│   ├── css/
-│   │   └── styles.css      # Optional custom styles
-│   └── uploads/            # All uploaded student images & documents
-│
-├── templates/
-│   ├── index.html          # Home page
-│   ├── courses.html        # Courses listing page
-│   ├── register.html       # Student registration form
-│   ├── ocr_payment.html    # Payment submission & OCR page
-│   ├── success.html        # Admission success page (shows student photo)
-│   └── verify.html         # Verification page
-│
-└── database/
-    └── schema.sql          # MySQL table structure (students, payments, etc.)
