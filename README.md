@@ -23,7 +23,7 @@ Below, every screenshot already includes a **fallback alternative image URL** so
 
 ## 1️⃣ Home Page
 
-![Home Page](img/home_page.png)
+![Home Page](img/home.png)
 *(Alternative if missing → https://via.placeholder.com/900x500?text=Home+Page+Screenshot)*
 
 This is the landing page.  
