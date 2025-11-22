@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admission Form - The National Degree College, Bagepalli</title>
+  <style>
+    body {
+      font-family: "Poppins", "Segoe UI", Tahoma, sans-serif;
+      background: #f6f8fa;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(90deg, #1f3c88, #2a4da8);
+      color: white;
+      text-align: center;
+      padding: 40px 10px; /* increased height */
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      position: relative;
+    }
+
+    /* ===== HELP BUTTON ===== */
+    .help-btn {
+      position: absolute;
+      top: 50%;
+      right: 30px;
+      transform: translateY(-50%);
+      background: #f9f9ff;
+      color: #1f3c88;
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .help-btn:hover {
+      background: #e2e7ff;
+    }
+
+    /* ===== HELP PANEL ===== */
+    .help-panel {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 20px;
+      background: #ffffff;
+      color: #1f3c88;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      width: 260px;
+      text-align: left;
+      padding: 15px;
+      z-index: 1000;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .help-panel h4 {
+      margin: 8px 0 10px;
+      font-size: 1rem;
+      border-bottom: 1px solid #ccd4ff;
+      padding-bottom: 5px;
+    }
+
+    .help-panel p {
+      margin: 5px 0;
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    .help-panel a {
+      color: #1f3c88;
+      text-decoration: none;
+      font-weight: 600;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .help-panel a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== MAIN FORM ===== */
+    main {
+      max-width: 950px;
+      margin: 40px auto;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .title-container {
+  text-align: center;
+}
+
+h2 {
+  color: #1f3c88;
+  margin-bottom: 35px;
+  border-bottom: 3px solid #1f3c88;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+    h3 {
+      color: #1f3c88;
+      border-bottom: 2px solid #1f3c88;
+      display: inline-block;
+      padding-bottom: 5px;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: 600;
+      color: #333;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      background: #fafafa;
+      transition: 0.2s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #1f3c88;
+      box-shadow: 0 0 5px rgba(31, 60, 136, 0.3);
+      background: #fff;
+      outline: none;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .col {
+      flex: 1;
+      min-width: 230px;
+    }
+
+    .student-photo-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .photo-upload {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    .btn {
+      display: block;
+      background: #1f3c88;
+      color: #fff;
+      border: none;
+      padding: 14px 36px;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      margin: 40px auto 0;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #162a5a;
+      transform: translateY(-2px);
+    }
+
+    .back-btn {
+      display: inline-block;
+      background: #3e61c9;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 25px auto 0;
+      transition: all 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: #1f3c88;
+    }
+
+    @media (max-width: 700px) {
+      main {
+        padding: 25px;
+      }
+      .row, .student-photo-row {
+        flex-direction: column;
+      }
+      .help-btn {
+        right: 15px;
+      }
+      .help-panel {
+        right: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    The National Degree College, Bagepalli
+    <button class="help-btn" onclick="toggleHelp()">Help</button>
+    <div class="help-panel" id="helpPanel">
+      <h4>📞 Helplines</h4>
+      <p>Admission Desk: +91 98765 43210</p>
+      <p>Office Support: +91 99887 77665</p>
+
+      <h4>📧 Emails</h4>
+      <p>admissions@tndc.edu.in</p>
+      <p>support@tndc.edu.in</p>
+
+      <h4>❓ Assistance</h4>
+      <a href="#">Visit Help Center</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="title-container">
+  <h2>Application for Admission</h2>
+</div>
+
+
+    <form id="admissionForm" action="{{ url_for('submit') }}" method="POST" enctype="multipart/form-data">
+      
+      <!-- User ID -->
+      <div class="col" style="margin-bottom: 20px;">
+        <label for="user_id">User ID</label>
+        <input type="text" id="user_id" name="user_id" placeholder="Enter your user ID" required />
+      </div>
+
+      <!-- Semester & Course -->
+      <div class="row">
+        <div class="col">
+          <label for="semester">Semester</label>
+          <select id="semester" name="semester" required>
+            <option value="">-- Select Semester --</option>
+            <option value="I">I Semester</option>
+            <option value="II">II Semester</option>
+            <option value="III">III Semester</option>
+            <option value="IV">IV Semester</option>
+            <option value="V">V Semester</option>
+            <option value="VI">VI Semester</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="course">Course</label>
+          <select id="course" name="course" required>
+            <option value="">-- Choose --</option>
+            <option value="BSc Cs">BSc Computer Science</option>
+            <option value="B.Com(S)">B.Com (Self)</option>
+            <option value="B.Com(G)">B.Com (General)</option>
+            <option value="BCA">BCA</option>
+            <option value="BBA">BBA</option>
+            <option value="MCom">MCom</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col" style="margin-top: 15px;">
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" required />
+      </div>
+
+      <!-- Student Information -->
+      <h3>Student Information</h3>
+      <div class="student-photo-row">
+        <div class="col" style="flex: 2;">
+          <label for="student_name">Name of the Student</label>
+          <input type="text" id="student_name" name="student_name" placeholder="Enter full name" required />
+        </div>
+        <div class="photo-upload">
+          <label for="photo">Passport Size Photo</label>
+          <input type="file" id="photo" name="photo" accept="image/*" required />
+        </div>
+      </div>
+
+      <!-- Parent Information -->
+      <div class="row">
+        <div class="col">
+          <label for="father_name">Father’s Name</label>
+          <input type="text" id="father_name" name="father_name" required />
+        </div>
+        <div class="col">
+          <label for="father_occ">Father’s Occupation</label>
+          <input type="text" id="father_occ" name="father_occ" required />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="mother_name">Mother’s Name</label>
+          <input type="text" id="mother_name" name="mother_name" required />
+        </div>
+        <div class="col">
+          <label for="mother_occ">Mother’s Occupation</label>
+          <input type="text" id="mother_occ" name="mother_occ" required />
+        </div>
+      </div>
+
+      <!-- Address -->
+      <label for="address">Permanent Address</label>
+      <textarea id="address" name="address" placeholder="Enter full postal address" required></textarea>
+
+      <!-- Bank Details -->
+      <h3>Bank Details</h3>
+      <div class="row">
+        <div class="col">
+          <label for="bank_name">Bank Name</label>
+          <input type="text" id="bank_name" name="bank_name" required />
+        </div>
+        <div class="col">
+          <label for="ifsc">IFSC Code</label>
+          <input type="text" id="ifsc" name="ifsc" required />
+        </div>
+        <div class="col">
+          <label for="acc_no">Account Number</label>
+          <input type="text" id="acc_no" name="acc_no" required />
+        </div>
+      </div>
+
+      <label for="bank_proof">Upload Bank Passbook Image (image/pdf)</label>
+      <input type="file" id="bank_proof" name="bank_proof" accept="image/*,application/pdf" required />
+
+      <!-- Scholarship -->
+      <h3>Scholarship Details</h3>
+      <label for="scholarship">SC/ST Students SSP Scholarship Registration No.</label>
+      <input type="text" id="scholarship" name="scholarship" />
+      <label for="ssp_image">Upload SSP Scholarship Proof (image/pdf)</label>
+      <input type="file" id="ssp_image" name="ssp_image" accept="image/*,application/pdf" />
+
+      <!-- Contact -->
+      <h3>Contact Details</h3>
+      <div class="row">
+        <div class="col">
+          <label for="mobile1">Mobile Number 1</label>
+          <input type="text" id="mobile1" name="mobile1" pattern="[0-9]{10}" required />
+        </div>
+        <div class="col">
+          <label for="mobile2">Mobile Number 2</label>
+          <input type="text" id="mobile2" name="mobile2" pattern="[0-9]{10}" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="religion">Religion</label>
+          <input type="text" id="religion" name="religion" />
+        </div>
+        <div class="col">
+          <label for="caste">Caste</label>
+          <input type="text" id="caste" name="caste" />
+        </div>
+        <div class="col">
+          <label for="category">Category</label>
+          <input type="text" id="category" name="category" />
+        </div>
+      </div>
+
+      <label for="income">Annual Income</label>
+      <input type="text" id="income" name="income" placeholder="e.g. 200000 per annum" />
+
+      <!-- Academic -->
+      <h3>Academic Details</h3>
+      <div class="row">
+        <div class="col">
+          <label for="sslc_reg">SSLC Register No.</label>
+          <input type="text" id="sslc_reg" name="sslc_reg" />
+        </div>
+        <div class="col">
+          <label for="caste_income_no">Caste & Income Certificate No.</label>
+          <input type="text" id="caste_income_no" name="caste_income_no" />
+        </div>
+      </div>
+
+      <label for="caste_income_file">Upload Caste & Income Certificate (image/pdf)</label>
+      <input type="file" id="caste_income_file" name="caste_income_file" accept="image/*,application/pdf" required />
+
+      <div class="row">
+        <div class="col">
+          <label for="aadhaar">Aadhaar Number</label>
+          <input type="text" id="aadhaar" name="aadhaar" pattern="[0-9]{12}" />
+        </div>
+        <div class="col">
+          <label for="email">Email ID</label>
+          <input type="email" id="email" name="email" />
+        </div>
+      </div>
+
+      <label for="aadhaar_file">Upload Aadhaar Card (image/pdf)</label>
+      <input type="file" id="aadhaar_file" name="aadhaar_file" accept="image/*,application/pdf" required />
+
+      <button type="submit" class="btn">Submit Application</button>
+
+      <!-- Back to Home at Bottom -->
+      <div style="text-align: center;">
+        <a href="{{ url_for('home') }}" class="back-btn">← Back to Home</a>
+      </div>
+    </form>
+  </main>
+
+  <script>
+    function toggleHelp() {
+      const panel = document.getElementById('helpPanel');
+      panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // Close help panel if clicked outside
+    window.onclick = function(e) {
+      const panel = document.getElementById('helpPanel');
+      if (!e.target.matches('.help-btn')) {
+        if (panel.style.display === 'block') {
+          panel.style.display = 'none';
+        }
+      }
+    };
+  </script>
+</body>
+</html>

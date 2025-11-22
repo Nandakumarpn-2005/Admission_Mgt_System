@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Successful</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #e6eee9 25%, #c9f7d6 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #a9f1c0;
+      padding: 40px 35px;
+      border-radius: 14px;
+      box-shadow: 0 8px 30px rgba(0, 128, 0, 0.2);
+      text-align: center;
+      max-width: 420px;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    .container:hover {
+      transform: translateY(-3px);
+    }
+
+    .success-icon {
+      font-size: 60px;
+      color: #2ecc71;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      color: #27ae60;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin: 10px 0;
+      color: #333;
+    }
+
+    .copy-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #f4fff6;
+      border: 1px solid #bff0c7;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    .copy-container span {
+      color: #1b5e20;
+      font-size: 1rem;
+      word-break: break-all;
+    }
+
+    .copy-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      transform: scale(1.15);
+    }
+
+    .copy-btn img {
+      width: 22px;
+      height: 22px;
+    }
+
+    .btn {
+      background: #27ae60;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 25px;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #1e8449;
+      transform: translateY(-2px);
+    }
+
+    .copied {
+      color: #2ecc71;
+      font-size: 0.9rem;
+      margin-top: 8px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="success-icon">✅</div>
+    <h2>Applicaton Sent Successful!</h2>
+	<p style="color: red; font-size: 12px;">
+  *NOTE: Note this user ID and password for further process
+</p>
+
+     
+    <div class="copy-container">
+<p><strong>YOUR ID:</strong></p>
+      <span id="txnId">{{ txn_id }}</span>
+      <button id="copyBtn" class="copy-btn" onclick="copyTxnId()" title="Copy Transaction ID">
+        <img id="copyIcon" src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" alt="Copy Icon">
+      </button>
+    </div>
+<p id="copiedMsg" class="copied">Copied to clipboard!</p>
+	<div class="copy-container">
+    <p><strong>Your Password:</strong>{{password}}</p>
+</div><div class="btn" onclick="location.href='{{ url_for('home') }}'">Go to admission</a>
+  </div>
+
+  <script>
+    function copyTxnId() {
+      const txnText = document.getElementById("txnId").innerText;
+      const icon = document.getElementById("copyIcon");
+      const msg = document.getElementById("copiedMsg");
+
+      navigator.clipboard.writeText(txnText).then(() => {
+        icon.src = "https://cdn-icons-png.flaticon.com/512/845/845646.png"; // ✅ icon
+        msg.classList.add("show");
+      });
+    }
+  </script>
+</body>
+</html>

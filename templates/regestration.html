@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply - Bengaluru North University</title>
+  <style>
+    body { font-family:"Poppins","Segoe UI",Tahoma,sans-serif; background:#f6f8fa; color:#222; margin:0; padding:0; }
+    h2,h3 { text-align:center; color:#1f3c88; margin:20px 0; }
+    form { max-width:700px; margin:50px auto; background:#fff; padding:40px; border-radius:12px; box-shadow:0 4px 25px rgba(0,0,0,0.1); }
+    label { display:block; font-weight:600; margin-bottom:8px; color:#333; }
+    input, select { width:100%; padding:12px; border-radius:6px; border:1px solid #ccc; margin-bottom:20px; font-size:1rem; background:#fafafa; transition:0.2s; }
+    input:focus, select:focus { border-color:#1f3c88; outline:none; background:#fff; }
+    input[type="checkbox"] { width:auto; margin-right:10px; }
+    .btn { display:block; margin:20px auto; background:#1f3c88; color:#fff; padding:14px 32px; border:none; border-radius:6px; font-size:1.05rem; cursor:pointer; transition:0.3s; }
+    .btn:hover { background:#162a5a; }
+    @media(max-width:480px){ form{padding:20px;} .btn{width:100%;} }
+
+    /* Modal styling */
+    .modal {
+      display:none; position:fixed; z-index:1000;
+      left:0; top:0; width:100%; height:100%;
+      background:rgba(0,0,0,0.5);
+    }
+    .modal-content {
+      background:#fff; margin:10% auto; padding:30px;
+      border-radius:12px; width:90%; max-width:400px;
+      text-align:center; box-shadow:0 4px 20px rgba(0,0,0,0.2);
+    }
+    .close { float:right; cursor:pointer; font-size:22px; color:#888; }
+    .close:hover { color:#000; }
+    .payment-icons {
+      display:flex; flex-wrap:wrap; justify-content:center; gap:15px;
+    }
+    .payment-icons button {
+      background:#f6f8fa; border:1px solid #ccc; border-radius:10px;
+      width:100px; padding:10px; cursor:pointer; transition:0.3s;
+    }
+    .payment-icons button:hover { background:#e6e9ef; transform:scale(1.05); }
+    .payment-icons img { width:50px; height:50px; }
+    .payment-icons p { font-size:14px; margin:6px 0 0 0; color:#1f3c88; font-weight:500; }
+
+    /* UPI input box */
+    #upiInputContainer {
+      margin-top: 20px;
+      display: none;
+    }
+    #upiInput {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      width: 90%;
+      margin-top: 10px;
+    }
+
+    /* Notification Toast */
+    #toast {
+      visibility: hidden;
+      min-width: 250px;
+      background-color: #1f3c88;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 16px;
+      position: fixed;
+      z-index: 1001;
+      left: 50%;
+      bottom: 30px;
+      transform: translateX(-50%);
+      font-size: 16px;
+    }
+    #toast.show {
+      visibility: visible;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+    @keyframes fadein {
+      from { bottom: 0; opacity: 0; }
+      to { bottom: 30px; opacity: 1; }
+    }
+    @keyframes fadeout {
+      from { bottom: 30px; opacity: 1; }
+      to { bottom: 0; opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+   
+  <form id="registrationForm" action="{{ url_for('submit_form') }}" method="POST" enctype="multipart/form-data">
+    <h2>Registration Form</h2>
+
+    <label for="name">Full Name *</label>
+    <input id="name" name="full_name" type="text" required>
+
+    <label for="Regester">Register No. *</label>
+    <input id="Regester" name="Regester" type="text" required>
+
+    <label for="course">Select Course *</label>
+    <select id="course" name="course_id" required>
+      <option value="">-- choose --</option>
+      <option value="BSc Cs">BSc Cs</option>
+      <option value="B.Com(s)">B.Com(S)</option>
+      <option value="B.Com(G)">B.Com(G)</option>
+      <option value="BCA">BCA</option>
+      <option value="BBA">BBA</option>
+      <option value="MCom">MCom</option>
+    </select>
+
+    <label for="Semester">Semester *</label>
+    <select id="Semester" name="Semester" required>
+      <option value="">-- choose --</option>
+      <option value="1st">1st</option>
+      <option value="2nd">2nd</option>
+      <option value="3rd">3rd</option>
+      <option value="4th">4th</option>
+      <option value="5th">5th</option>
+      <option value="6th">6th</option>
+    </select>
+
+    <label for="phone">Phone *</label>
+    <input id="phone" name="phone" type="text" required pattern="[0-9]{10}" title="Enter 10-digit phone number">
+
+    <h3>Pay Application Fee ₹100</h3>
+    <button type="button" class="btn" onclick="openPaymentModal()">Pay Now</button>
+
+        <label for="photo">Upload Fees Receipt Image *</label>
+    <input id="photo" name="photo" type="file" accept="image/*" required>
+
+    <label><input type="checkbox" required> I declare that the information provided is true *</label>
+
+    <button type="submit" class="btn">Submit Application</button>
+  </form>
+
+  <!-- Payment Modal -->
+  <div id="paymentModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closePaymentModal()">&times;</span>
+      <h3>Select Payment Method</h3>
+      <div class="payment-icons">
+        <button onclick="pay('gpay')" title="Google Pay">
+          <img src="https://th.bing.com/th/id/OIP.P39ZiX6Wewbw_8SUI3EFngHaHa?w=182&h=182" alt="Google Pay">
+          <p>Google Pay</p>
+        </button>
+        <button onclick="pay('phonepe')" title="PhonePe">
+          <img src="https://th.bing.com/th/id/OIP.Mzmm1a-176GNpOK9r8HdnwHaFj?w=240&h=180" alt="PhonePe">
+          <p>PhonePe</p>
+        </button>
+        <button onclick="pay('paytm')" title="Paytm">
+          <img src="https://th.bing.com/th/id/OIP.ugqUs6-BnsAlp5xrPQr0OAHaHa?w=179&h=180" alt="Paytm">
+          <p>Paytm</p>
+        </button>
+        <button onclick="showUpiInput()" title="UPI">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo-vector.svg" alt="UPI">
+          <p>UPI</p>
+        </button>
+      </div>
+
+      <!-- UPI input field -->
+      <div id="upiInputContainer">
+        <input type="text" id="upiInput" placeholder="Enter your UPI ID (e.g. name@upi)">
+        <button class="btn" style="margin-top:15px; padding:10px 20px;" onclick="upiPay()">Proceed to Pay</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast">Payment request sent successfully!</div>
+
+  <script>
+    const modal = document.getElementById('paymentModal');
+    const upiContainer = document.getElementById('upiInputContainer');
+
+    function openPaymentModal() { modal.style.display = 'block'; }
+    function closePaymentModal() { modal.style.display = 'none'; upiContainer.style.display = 'none'; }
+
+    function pay(method) {
+      const upiId = "6362834815@ybl";
+      const name = "The National College";
+      const amount = "100";
+      let url = "";
+
+      if (method === "gpay")
+        url = `tez://upi/pay?pa=${upiId}&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR`;
+      else if (method === "phonepe")
+        url = `phonepe://pay?pa=${upiId}&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR`;
+      else if (method === "paytm")
+        url = `paytmmp://pay?pa=${upiId}&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR`;
+
+      if (url) {
+        window.location.href = url;
+        closePaymentModal();
+        showToast("Redirecting to payment app...");
+      } else {
+        alert("Unable to open payment app. Try manually from your phone.");
+      }
+    }
+
+    function showUpiInput() {
+      upiContainer.style.display = "block";
+    }
+
+    function upiPay() {
+      const userUpi = document.getElementById("upiInput").value.trim();
+      if (!userUpi) {
+        alert("Please enter your UPI ID before proceeding!");
+        return;
+      }
+      closePaymentModal();
+      showToast(`Payment request sent to ${userUpi}`);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById("toast");
+      toast.innerText = msg;
+      toast.className = "show";
+      setTimeout(() => toast.className = toast.className.replace("show", ""), 3000);
+    }
+
+    // ✅ Removed the transaction ID popup prompt.
+    // User now enters Transaction ID manually.
+    
+    // Close modal if clicking outside
+    window.onclick = function(e){ if(e.target==modal) closePaymentModal(); }
+  </script>
+
+</body>
+</html>
