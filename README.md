@@ -25,7 +25,7 @@ If your local `img/...` files are missing, you can still use the alternative pla
 ## 1️⃣ Home Page
 
 <p align="center">
-  <img src="img/home.png" alt="Home Page" width="100" height="100">
+  <img src="img/home.png" alt="Home Page" width="250" height="2500">
 </p>
 
 <p align="center">
@@ -45,7 +45,7 @@ Navigation includes:
 ## 2️⃣ Courses Page
 
 <p align="center">
-  <img src="img/course.jpg" alt="Courses Page" width="100" height="100">
+  <img src="img/course.jpg" alt="Courses Page" width="250" height="250">
 </p>
 
 <p align="center">
