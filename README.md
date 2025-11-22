@@ -14,7 +14,7 @@ It includes:
 ## 1️⃣ Home Page
 
 <p align="center">
-  <img src="img/home.jpg" alt="Home Page" width="300" height="300">
+  <img src="img/home.jpg" alt="Home Page" width="500" height="500">
 </p>
 This is the landing page.  
 Navigation includes:
@@ -29,7 +29,7 @@ Navigation includes:
 ## 2️⃣ Courses Page
 
 <p align="center">
-  <img src="img/course.jpg" alt="Courses Page" width="300" height="300">
+  <img src="img/course.jpg" alt="Courses Page" width="500" height="500">
 </p>
 
 This page lists all available courses, their codes, and titles.  
@@ -42,7 +42,7 @@ Accessed through the `/courses` route.
 ## 3️⃣ Registration Page
 
 <p align="center">
-  <img src="img/reg.jpg" alt="Registration Page" width="300" height="300">
+  <img src="img/reg.jpg" alt="Registration Page" width="500" height="500">
 </p>
 
 Students provide:
@@ -60,7 +60,7 @@ Student photo is saved into `static/uploads/`.
 ## 4️⃣ Payment Submission Page (OCR)
 
 <p align="center">
-  <img src="img/regss.jpg" alt="OCR Payment Page" width="300" height="300">
+  <img src="img/regss.jpg" alt="OCR Payment Page" width="500" height="500">
 </p>
 
 This page accepts a student's **fee payment receipt**.  
@@ -76,10 +76,10 @@ The system also generates a **unique 6-digit code** for verification.
 ## 5️⃣ Admission  Page
 
 <p align="center">
-  <img src="img/adim.jpg" alt="Admission Success Page" width="300" height="300">
+  <img src="img/adim.jpg" alt="Admission Success Page" width="500" height="500">
 </p>
 <p align="center">
-  <img src="img/adim2.jpg" alt="Admission Success Page" width="300" height="300">
+  <img src="img/adim2.jpg" alt="Admission Success Page" width="500" height="500">
 </p>
 
 
@@ -97,7 +97,7 @@ The photo appears nicely aligned beside the student details.
 ---
 
 7️⃣ Admission Success Form
-<p align="center"> <img src="img/sucess.jpg" alt="Admission Success Form" width="300" height="300"> </p> <p align="center"> </p>
+<p align="center"> <img src="img/sucess.jpg" alt="Admission Success Form" width="500" height="500"> </p> <p align="center"> </p>
 
 The Admission Success Form confirms that the student registration has been successfully completed.
 It highlights the student details clearly in a modern green-themed card layout.
