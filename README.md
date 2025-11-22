@@ -27,11 +27,6 @@ If your local `img/...` files are missing, you can still use the alternative pla
 <p align="center">
   <img src="img/home.png" alt="Home Page" width="250" height="2500">
 </p>
-
-<p align="center">
-  <em>Alternative if missing → https://via.placeholder.com/900x500?text=Home+Page+Screenshot</em>
-</p>
-
 This is the landing page.  
 Navigation includes:
 
@@ -46,10 +41,6 @@ Navigation includes:
 
 <p align="center">
   <img src="img/course.jpg" alt="Courses Page" width="250" height="250">
-</p>
-
-<p align="center">
-  <em>Alternative if missing → https://via.placeholder.com/900x500?text=Courses+Page+Screenshot</em>
 </p>
 
 This page lists all available courses, their codes, and titles.  
