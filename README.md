@@ -1,107 +1,116 @@
 # 🎓 Student Admission & Verification System (Flask + MySQL + OCR)
 
 This project is a complete **Student Admission Web Application** built with Flask.  
-It supports:
+It includes:
 
 - Student registration  
-- Course listing page  
-- Document & photo uploads  
-- OCR extraction of UTR from payment receipts  
+- Courses listing page  
+- OCR-based fee payment extraction  
+- Dynamic document & photo uploads  
 - MySQL database storage  
 - Student verification  
 - Dynamic image display from static/uploads/  
 
-Uploaded images are saved uniquely inside **static/uploads**, and the same image appears on the success page beside the student details.
+Uploaded images are stored uniquely inside **static/uploads/** and displayed on the success page beside the student details.
 
 ---
 
-# 🖼️ Screenshots (With Explanation)
+# 🖼️ Screenshots (With Working Alternative Images)
+
+Below, every screenshot already includes a **fallback alternative image URL** so your README works even if your own images are not added yet.
 
 ---
 
 ## 1️⃣ Home Page
-*(Add image file: `static/images/screenshots/home_page.png`)*
 
-This is the main landing page.  
-Provides navigation to:
+![Home Page](img/home_page.png)
+*(Alternative if missing → https://via.placeholder.com/900x500?text=Home+Page+Screenshot)*
 
-- Course list  
-- Registration form  
-- Payment submission page  
-- Verification page  
+This is the landing page.  
+Navigation includes:
+
+- Courses Page  
+- Registration Form  
+- Payment OCR Page  
+- Verification Page  
 
 ---
 
 ## 2️⃣ Courses Page
-*(Add image file: `img/course.jpg`)*
 
-This page displays the **list of available courses** offered by the institution.
+![Courses Page](img/course.jpg)
+*(Alternative if missing → https://via.placeholder.com/900x500?text=Courses+Page+Screenshot)*
 
-It is accessed using the `/courses` route.
+This page lists all available courses, their codes, and titles.  
+It helps students choose the correct course before filling the registration form.
 
-### What the Courses Page Contains:
-- List of degree and diploma programs  
-- Course codes and titles  
-- Clean green-themed UI matching the rest of the project  
-
-This page helps students choose the correct course before filling the registration form.
+Accessed through the `/courses` route.
 
 ---
 
 ## 3️⃣ Registration Page
-*(Add image file: `static/images/screenshots/registration_page.png`)*
 
-Here students provide:
+![Registration Page](img/registration_page.png)
+*(Alternative if missing → https://via.placeholder.com/900x500?text=Registration+Page+Screenshot)*
+
+Students provide:
 
 - Personal details  
-- Parent information  
-- Academic details  
-- Bank details  
-- Document uploads (photo, Aadhaar, bank proof, caste/income, SSP screenshot)  
+- Parent details  
+- Academic info  
+- Bank info  
+- Upload documents (Photo, Aadhaar, Bank Proof, SSP Screenshot, Caste/Income Certificate)  
 
-Uploaded photo is saved inside `static/uploads/`.
+Student photo is saved into `static/uploads/`.
 
 ---
 
 ## 4️⃣ Payment Submission Page (OCR)
-*(Add image file: `static/images/screenshots/ocr_page.png`)*
 
-This page accepts the payment screenshot.  
-The backend uses **Tesseract OCR** to extract:
+![OCR Page](img/ocr_page.png)
+*(Alternative if missing → https://via.placeholder.com/900x500?text=OCR+Payment+Page+Screenshot)*
 
-- UTR ID  
-- Transaction Reference Number  
+This page accepts a student's **fee payment receipt**.  
+The backend uses OCR to extract:
 
-The system then generates a unique 6-digit code and stores both in the database.
+- UTR number  
+- Transaction reference ID  
+
+The system also generates a **unique 6-digit code** for verification.
 
 ---
 
 ## 5️⃣ Admission Success Page
-*(Add image file: `static/images/screenshots/success_page.png`)*
 
-Shows:
+![Success Page](img/success_page.png)
+*(Alternative if missing → https://via.placeholder.com/900x500?text=Success+Page+Screenshot)*
 
-- Student name (**uppercase**)  
-- Semester  
+This page shows:
+
+- Student name (uppercase)  
 - Course  
-- Email  
+- Semester  
 - Mobile  
-- **Student photo displayed from static/uploads**  
+- Email  
+- **Student photo displayed dynamically from static/uploads/**  
 
-Photo appears in a rectangular box beside the details.
+The photo appears nicely aligned beside the student details.
 
 ---
 
 ## 6️⃣ Verification Page
-*(Add image file: `static/images/screenshots/verification_page.png`)*
 
-Students enter:
+![Verification Page](img/verification_page.png)
+*(Alternative if missing → https://via.placeholder.com/900x500?text=Verification+Page+Screenshot)*
+
+Students verify their admission using:
 
 - Transaction ID  
 - Unique Code  
 
-If both match an entry in the database → verification success.  
-Else → error message.
+If both match database records → “Verification Successful”.
+
+If not → error message.
 
 ---
 
