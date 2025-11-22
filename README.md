@@ -84,11 +84,15 @@ The system also generates a **unique 6-digit code** for verification.
 
 ---
 
-## 5️⃣ Admission Success Page
+## 5️⃣ Admission  Page
 
 <p align="center">
-  <img src="img/success_page.png" alt="Admission Success Page" width="300" height="300">
+  <img src="img/adim.jpg" alt="Admission Success Page" width="300" height="300">
 </p>
+<p align="center">
+  <img src="img/adim1.jpg" alt="Admission Success Page" width="300" height="300">
+</p>
+
 
 This page shows:
 
