@@ -25,7 +25,7 @@ If your local `img/...` files are missing, you can still use the alternative pla
 ## 1️⃣ Home Page
 
 <p align="center">
-  <img src="img/home.png" alt="Home Page" width="250" height="2500">
+  <img src="img/home.jpg" alt="Home Page" width="300" height="300">
 </p>
 This is the landing page.  
 Navigation includes:
@@ -40,7 +40,7 @@ Navigation includes:
 ## 2️⃣ Courses Page
 
 <p align="center">
-  <img src="img/course.jpg" alt="Courses Page" width="250" height="250">
+  <img src="img/course.jpg" alt="Courses Page" width="300" height="300">
 </p>
 
 This page lists all available courses, their codes, and titles.  
@@ -53,11 +53,7 @@ Accessed through the `/courses` route.
 ## 3️⃣ Registration Page
 
 <p align="center">
-  <img src="img/registration_page.png" alt="Registration Page" width="100" height="100">
-</p>
-
-<p align="center">
-  <em>Alternative if missing → https://via.placeholder.com/900x500?text=Registration+Page+Screenshot</em>
+  <img src="img/reg.jpg" alt="Registration Page" width="300" height="300">
 </p>
 
 Students provide:
@@ -75,11 +71,7 @@ Student photo is saved into `static/uploads/`.
 ## 4️⃣ Payment Submission Page (OCR)
 
 <p align="center">
-  <img src="img/ocr_page.png" alt="OCR Payment Page" width="100" height="100">
-</p>
-
-<p align="center">
-  <em>Alternative if missing → https://via.placeholder.com/900x500?text=OCR+Payment+Page+Screenshot</em>
+  <img src="img/regss.jpg" alt="OCR Payment Page" width="300" height="300">
 </p>
 
 This page accepts a student's **fee payment receipt**.  
@@ -95,11 +87,7 @@ The system also generates a **unique 6-digit code** for verification.
 ## 5️⃣ Admission Success Page
 
 <p align="center">
-  <img src="img/success_page.png" alt="Admission Success Page" width="100" height="100">
-</p>
-
-<p align="center">
-  <em>Alternative if missing → https://via.placeholder.com/900x500?text=Success+Page+Screenshot</em>
+  <img src="img/success_page.png" alt="Admission Success Page" width="300" height="300">
 </p>
 
 This page shows:
