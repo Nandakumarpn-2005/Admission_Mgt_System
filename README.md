@@ -9,22 +9,28 @@ It includes:
 - Dynamic document & photo uploads  
 - MySQL database storage  
 - Student verification  
-- Dynamic image display from static/uploads/  
+- Dynamic image display from `static/uploads/`  
 
-Uploaded images are stored uniquely inside **static/uploads/** and displayed on the success page beside the student details.
+Uploaded images are stored uniquely inside **`static/uploads/`** and displayed on the success page beside the student details.
 
 ---
 
 # 🖼️ Screenshots (With Working Alternative Images)
 
-Below, every screenshot already includes a **fallback alternative image URL** so your README works even if your own images are not added yet.
+Below, every screenshot is centered and fixed to **100×100** size.  
+If your local `img/...` files are missing, you can still use the alternative placeholder links.
 
 ---
 
 ## 1️⃣ Home Page
 
-![Home Page](img/home.png)
-*(Alternative if missing → https://via.placeholder.com/900x500?text=Home+Page+Screenshot)*
+<p align="center">
+  <img src="img/home.png" alt="Home Page" width="100" height="100">
+</p>
+
+<p align="center">
+  <em>Alternative if missing → https://via.placeholder.com/900x500?text=Home+Page+Screenshot</em>
+</p>
 
 This is the landing page.  
 Navigation includes:
@@ -38,8 +44,13 @@ Navigation includes:
 
 ## 2️⃣ Courses Page
 
-![Courses Page](img/course.jpg)
-*(Alternative if missing → https://via.placeholder.com/900x500?text=Courses+Page+Screenshot)*
+<p align="center">
+  <img src="img/course.jpg" alt="Courses Page" width="100" height="100">
+</p>
+
+<p align="center">
+  <em>Alternative if missing → https://via.placeholder.com/900x500?text=Courses+Page+Screenshot</em>
+</p>
 
 This page lists all available courses, their codes, and titles.  
 It helps students choose the correct course before filling the registration form.
@@ -50,8 +61,13 @@ Accessed through the `/courses` route.
 
 ## 3️⃣ Registration Page
 
-![Registration Page](img/registration_page.png)
-*(Alternative if missing → https://via.placeholder.com/900x500?text=Registration+Page+Screenshot)*
+<p align="center">
+  <img src="img/registration_page.png" alt="Registration Page" width="100" height="100">
+</p>
+
+<p align="center">
+  <em>Alternative if missing → https://via.placeholder.com/900x500?text=Registration+Page+Screenshot</em>
+</p>
 
 Students provide:
 
@@ -67,8 +83,13 @@ Student photo is saved into `static/uploads/`.
 
 ## 4️⃣ Payment Submission Page (OCR)
 
-![OCR Page](img/ocr_page.png)
-*(Alternative if missing → https://via.placeholder.com/900x500?text=OCR+Payment+Page+Screenshot)*
+<p align="center">
+  <img src="img/ocr_page.png" alt="OCR Payment Page" width="100" height="100">
+</p>
+
+<p align="center">
+  <em>Alternative if missing → https://via.placeholder.com/900x500?text=OCR+Payment+Page+Screenshot</em>
+</p>
 
 This page accepts a student's **fee payment receipt**.  
 The backend uses OCR to extract:
@@ -82,8 +103,13 @@ The system also generates a **unique 6-digit code** for verification.
 
 ## 5️⃣ Admission Success Page
 
-![Success Page](img/success_page.png)
-*(Alternative if missing → https://via.placeholder.com/900x500?text=Success+Page+Screenshot)*
+<p align="center">
+  <img src="img/success_page.png" alt="Admission Success Page" width="100" height="100">
+</p>
+
+<p align="center">
+  <em>Alternative if missing → https://via.placeholder.com/900x500?text=Success+Page+Screenshot</em>
+</p>
 
 This page shows:
 
@@ -92,7 +118,7 @@ This page shows:
 - Semester  
 - Mobile  
 - Email  
-- **Student photo displayed dynamically from static/uploads/**  
+- **Student photo displayed dynamically from `static/uploads/`**  
 
 The photo appears nicely aligned beside the student details.
 
@@ -100,19 +126,46 @@ The photo appears nicely aligned beside the student details.
 
 ## 6️⃣ Verification Page
 
-![Verification Page](img/verification_page.png)
-*(Alternative if missing → https://via.placeholder.com/900x500?text=Verification+Page+Screenshot)*
+<p align="center">
+  <img src="img/verification_page.png" alt="Verification Page" width="100" height="100">
+</p>
+
+<p align="center">
+  <em>Alternative if missing → https://via.placeholder.com/900x500?text=Verification+Page+Screenshot</em>
+</p>
 
 Students verify their admission using:
 
 - Transaction ID  
 - Unique Code  
 
-If both match database records → “Verification Successful”.
+If both match database records → **“Verification Successful”**.  
 
-If not → error message.
+If not → appropriate **error message** is displayed.
 
 ---
 
 # 📁 Folder Structure
 
+```text
+project_root/
+│
+├── app.py                  # Main Flask application
+├── requirements.txt        # Python dependencies
+├── README.md               # Project documentation (this file)
+│
+├── static/
+│   ├── css/
+│   │   └── styles.css      # Optional custom styles
+│   └── uploads/            # All uploaded student images & documents
+│
+├── templates/
+│   ├── index.html          # Home page
+│   ├── courses.html        # Courses listing page
+│   ├── register.html       # Student registration form
+│   ├── ocr_payment.html    # Payment submission & OCR page
+│   ├── success.html        # Admission success page (shows student photo)
+│   └── verify.html         # Verification page
+│
+└── database/
+    └── schema.sql          # MySQL table structure (students, payments, etc.)
