@@ -9,18 +9,7 @@ It includes:
 - Dynamic document & photo uploads  
 - MySQL database storage  
 - Student verification  
-- Dynamic image display from `static/uploads/`  
-
-Uploaded images are stored uniquely inside **`static/uploads/`** and displayed on the success page beside the student details.
-
----
-
-# 🖼️ Screenshots (With Working Alternative Images)
-
-Below, every screenshot is centered and fixed to **100×100** size.  
-If your local `img/...` files are missing, you can still use the alternative placeholder links.
-
----
+- Dynamic image display 
 
 ## 1️⃣ Home Page
 
@@ -108,7 +97,7 @@ The photo appears nicely aligned beside the student details.
 ---
 
 7️⃣ Admission Success Form
-<p align="center"> <img src="img/sucess.jpg" alt="Admission Success Form" width="300" height="300"> </p> <p align="center"> <em>Alternative if missing → https://via.placeholder.com/900x500?text=Admission+Success+Form+Screenshot</em> </p>
+<p align="center"> <img src="img/sucess.jpg" alt="Admission Success Form" width="300" height="300"> </p> <p align="center"> </p>
 
 The Admission Success Form confirms that the student registration has been successfully completed.
 It highlights the student details clearly in a modern green-themed card layout.
