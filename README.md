@@ -33,7 +33,7 @@ Provides navigation to:
 ---
 
 ## 2️⃣ Courses Page
-*(Add image file: `static/images/screenshots/courses_page.png`)*
+*(Add image file: `img/course.jpg`)*
 
 This page displays the **list of available courses** offered by the institution.
 
